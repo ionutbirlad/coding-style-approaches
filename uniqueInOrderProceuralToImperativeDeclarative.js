@@ -58,23 +58,21 @@
 
 
 // IMPERATIVO
-// const uniqueInOrderImperative = (arr) => {
-//   if (!Array.isArray(arr) || arr.length === 0) return [];
+const uniqueInOrderImperative = (arr) => {
+  if (!Array.isArray(arr) || arr.length === 0) return [];
 
-//   const seen = new Map();
-//   let result = [];
+  const seen = new Map();
+  let result = [];
 
-//   for (const item of arr) {
-//     if (!seen.has(item)) {
-//       seen.set(item, true);
-//       result.push(item);
-//     }
-//   }
+  for (const item of arr) {
+    if (!seen.has(item)) {
+      seen.set(item, true);
+      result.push(item);
+    }
+  }
   
-//   return result;
-// }
-
-// uniqueInOrderImperative(["a","b","a","c","b"]);
+  return result;
+}
 
 // DICHIARATIVA
 const uniqueInOrderDeclarative = (arr) => {
