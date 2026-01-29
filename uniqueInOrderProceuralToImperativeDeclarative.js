@@ -91,3 +91,46 @@ const uniqueInOrderDeclarative = (arr) => {
 }
 
 uniqueInOrderDeclarative(["a","b","a","c","b"]);
+
+
+/**
+ * L’immutabilità pura è raramente necessaria nel mondo reale.
+ * È importante non mutare input e non avere side-effects esterni,
+ * mentre la mutabilità dello stato interno, se locale e controllata,
+ * è generalmente accettabile.
+ */
+
+
+// esempi che non hanno senso anche se giustissimi, ma piu lenti e difficili da capire e gestire
+
+// 🔬 Versione dichiarativa + immutabile pura
+
+// const uniqueInOrderPure = (arr) =>
+//   Array.isArray(arr)
+//     ? arr.reduce(
+//         (acc, item) =>
+//           acc.result.includes(item)
+//             ? acc
+//             : {
+//                 seen: [...acc.seen, item],
+//                 result: [...acc.result, item],
+//               },
+//         { seen: [], result: [] }
+//       ).result
+//     : [];
+
+// 🔬 Versione imperativa + immutabile pura
+
+// const uniqueInOrderImperativePure = (arr) => {
+//   if (!Array.isArray(arr) || arr.length === 0) return [];
+
+//   let result = [];
+
+//   for (const item of arr) {
+//     if (!result.includes(item)) {
+//       result = [...result, item]; // nuova copia ogni volta
+//     }
+//   }
+
+//   return result;
+// };
