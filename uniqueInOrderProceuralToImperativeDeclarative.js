@@ -76,7 +76,7 @@
 
 // uniqueInOrderImperative(["a","b","a","c","b"]);
 
-// IMPERATIVO
+// DICHIARATIVA
 const uniqueInOrderDeclarative = (arr) => {
   if (!Array.isArray(arr) || arr.length === 0) return [];
 
