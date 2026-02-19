@@ -28,16 +28,19 @@
 // BASELINE: PROCEDURALE (da trasformare)
 // ========================================
 
-function twoSum(arr, target) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[i] + arr[j] === target) {
-        return [i, j];
-      }
-    }
-  }
-  return null;
-}
+// function twoSum(arr, target) {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (arr[i] + arr[j] === target) {
+//         return [i, j];
+//       }
+//     }
+//   }
+//   return null;
+// }
+
+// const res = twoSum([1, 4, 3, 6], 7);
+// console.log(res);
 
 // ========================================
 // IMPERATIVO [O(n) o complessità migliore]
@@ -45,7 +48,23 @@ function twoSum(arr, target) {
 
 // Soluzione con loop espliciti
 // Performance ottimizzata
-// (la mia implementazione)
+
+function twoSum(arr, target) {
+  if (!Array.isArray(arr) || arr.length < 2) return null;
+
+  let track = new Map();
+
+  for (const [index, item] of arr.entries()) {
+    const complement = target -item;
+    if (track.has(complement)) return [track.get(complement), index];
+    if (!track.has(item)) track.set(item, index);
+  }
+
+  return null;
+}
+
+const res = twoSum([3, 4], 6);
+console.log(res);
 
 // ========================================
 // DICHIARATIVO [O(n) o complessità migliore]
