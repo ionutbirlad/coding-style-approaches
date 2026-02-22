@@ -85,3 +85,13 @@ Bassa priorità: Binary Search
 - [ ] Big O base: O(n) vs O(n²)
 - [ ] Quando usare oggetto vs array
 - [ ] Edge cases: array vuoto, input null/undefined
+
+# Sintesi terra terra:
+
+## Riepilogo pattern algoritmici
+
+1. I pattern sono la maggior parte delle volte ricorrenti, nel senso che sarà ovviamente O(n²) per la procedurale, O(n) per l'imperativa e la dichiarativa e di solito per queste ultime 2 l'approccio è rispettivamente for loop con "sentinella" esterna e reduce che ci toglie la necessità di sentinella spesse volte, anche se non sempre. *(Nota: la procedurale non è necessariamente O(n²) — lo è quando usi due loop annidati come in Two Sum, ma Frequency Counter procedurale è già O(n) con un solo loop. O(n²) è il punto di partenza "ingenuo", non una regola fissa della procedurale.)*
+
+2. Per la maggior parte dei problemi di questo tipo, come unique in order, Two Sum e Frequency Counter, non serve sapere algoritmi particolari, si deducono sul momento perché abbastanza semplici, ma seguono più o meno i pattern del punto 1.
+
+3. Per altri problemi invece di solito i pattern sono gli stessi del punto 1, ma serve sapere algoritmi di base e la loro combinazione migliore per quella specifica casistica.
