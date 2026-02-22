@@ -49,22 +49,23 @@
 // Soluzione con loop espliciti
 // Performance ottimizzata
 
-function twoSum(arr, target) {
-  if (!Array.isArray(arr) || arr.length < 2) return null;
+// function twoSum(arr, target) {
+//   if (!Array.isArray(arr) || arr.length < 2) return null;
 
-  let track = new Map();
+//   let track = new Map();
 
-  for (const [index, item] of arr.entries()) {
-    const complement = target -item;
-    if (track.has(complement)) return [track.get(complement), index];
-    if (!track.has(item)) track.set(item, index);
-  }
+//   for (const [index, item] of arr.entries()) {
+//     const complement = target -item;
+//     if (track.has(complement)) return [track.get(complement), index];
+//     if (!track.has(item)) track.set(item, index);
+//   }
 
-  return null;
-}
+//   return null;
+// }
 
-const res = twoSum([3, 4], 6);
-console.log(res);
+// // const res = twoSum([3, 4], 6);
+// const res = twoSum([1, 4, 3, 6], 7);
+// console.log(res);
 
 // ========================================
 // DICHIARATIVO [O(n) o complessità migliore]
@@ -72,4 +73,24 @@ console.log(res);
 
 // Soluzione con metodi array, reduce, filter, etc.
 // Espressiva ma comunque efficiente
-// (la mia implementazione)
+
+function twoSum(arr, target) {
+  if (!Array.isArray(arr) || arr.length < 2) return null;
+
+  let track = new Map();
+
+  const result = arr.reduce((acc, currVal, index) => {
+    const complement = target - currVal;
+
+    if (track.has(complement) && acc.length < 2) acc = [...acc, track.get(complement), index];
+    if (!track.has(currVal)) track.set(currVal, index);
+
+    return acc;
+  }, []);
+
+  return result.length === 2 ? result : null;
+}
+
+// const res = twoSum([3, 4], 6);
+const res = twoSum([1, 4, 3, 6], 7);
+console.log(res);
