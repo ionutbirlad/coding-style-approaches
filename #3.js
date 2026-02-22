@@ -55,10 +55,14 @@ function frequencyCounter(arr) {
   if (!Array.isArray(arr)) return null;
   if (arr.length === 0) return {};
 
-  const counter = new Map();
+  const counter = {};
 
-  for (item of arr) {
-    console.log(item);
+  for (const item of arr) {
+    if (!counter[item]) {
+      counter[item] = 1;
+    } else {
+      counter[item]++;
+    }
   }
 
   return counter;
