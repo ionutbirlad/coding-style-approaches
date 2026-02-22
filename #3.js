@@ -51,25 +51,25 @@
 // Soluzione con loop espliciti
 // Performance ottimizzata
 
-function frequencyCounter(arr) {
-  if (!Array.isArray(arr)) return null;
-  if (arr.length === 0) return {};
+// function frequencyCounter(arr) {
+//   if (!Array.isArray(arr)) return null;
+//   if (arr.length === 0) return {};
 
-  const counter = {};
+//   const counter = {};
 
-  for (const item of arr) {
-    if (!counter[item]) {
-      counter[item] = 1;
-    } else {
-      counter[item]++;
-    }
-  }
+//   for (const item of arr) {
+//     if (!counter[item]) {
+//       counter[item] = 1;
+//     } else {
+//       counter[item]++;
+//     }
+//   }
 
-  return counter;
-}
+//   return counter;
+// }
 
-const res = frequencyCounter(['a', 'b', 'a', 'c', 'b', 'a']);
-console.log(res);
+// const res = frequencyCounter(['a', 'b', 'a', 'c', 'b', 'a']);
+// console.log(res);
 
 // ========================================
 // DICHIARATIVO [O(n) o complessità migliore]
@@ -78,4 +78,20 @@ console.log(res);
 // Soluzione con metodi array, reduce, filter, etc.
 // Espressiva ma comunque efficiente
 
+function frequencyCounter(arr) {
+  if (!Array.isArray(arr)) return null;
+  if (arr.length === 0) return {};
 
+  return arr.reduce((acc, currVal) => {
+    if (!acc[currVal]) {
+      acc[currVal] = 1;
+    } else {
+      acc[currVal]++;
+    }
+
+    return acc;
+  }, {});
+}
+
+const res = frequencyCounter(['a', 'b', 'a', 'c', 'b', 'a']);
+console.log(res);
