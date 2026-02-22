@@ -25,24 +25,24 @@
 // BASELINE: PROCEDURALE (da trasformare)
 // ========================================
 
-function frequencyCounter(arr) {
-  if (!Array.isArray(arr)) return null;
+// function frequencyCounter(arr) {
+//   if (!Array.isArray(arr)) return null;
 
-  const result = {};
+//   const result = {};
 
-  for (const item of arr) {
-    if (result[item]) {
-      result[item]++;
-    } else {
-      result[item] = 1;
-    }
-  }
+//   for (const item of arr) {
+//     if (result[item]) {
+//       result[item]++;
+//     } else {
+//       result[item] = 1;
+//     }
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
-const res = frequencyCounter(['a', 'b', 'a', 'c', 'b', 'a']);
-console.log(res);
+// const res = frequencyCounter(['a', 'b', 'a', 'c', 'b', 'a']);
+// console.log(res);
 
 // ========================================
 // IMPERATIVO [O(n) o complessità migliore]
@@ -51,7 +51,21 @@ console.log(res);
 // Soluzione con loop espliciti
 // Performance ottimizzata
 
+function frequencyCounter(arr) {
+  if (!Array.isArray(arr)) return null;
+  if (arr.length === 0) return {};
 
+  const counter = new Map();
+
+  for (item of arr) {
+    console.log(item);
+  }
+
+  return counter;
+}
+
+const res = frequencyCounter(['a', 'b', 'a', 'c', 'b', 'a']);
+console.log(res);
 
 // ========================================
 // DICHIARATIVO [O(n) o complessità migliore]
