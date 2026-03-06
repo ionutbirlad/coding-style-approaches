@@ -23,6 +23,7 @@
 
 // Descrizione del problema
 // Data un array di elementi, contare quante volte appare ciascun elemento.
+
 // ========================================
 // BASELINE: PROCEDURALE (da trasformare)
 // ========================================
