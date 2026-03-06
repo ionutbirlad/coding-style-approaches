@@ -50,8 +50,40 @@ function removeDuplicates(arr) {
 // IMPERATIVO [O(n) o complessità migliore]
 // ========================================
 
+function removeDuplicates(arr) {
+  if (!Array.isArray(arr)) return null;
+  if (arr.length === 0) return [];
 
+  const seen = new Set();
+  let result = [];
+
+  for (const item of arr) {
+    if (!seen.has(item)) {
+      seen.add(item, true);
+      result.push(item);
+    }
+  }
+
+  return result;
+}
 
 // ========================================
 // DICHIARATIVO [O(n) o complessità migliore]
 // ========================================
+
+function removeDuplicates(arr) {
+  if (!Array.isArray(arr)) return null;
+  if (arr.length === 0) return [];
+
+  const seen = new Set();
+
+  return arr.reduce((acc, currVal) => {
+    if (!seen.has(currVal)) {
+      seen.add(currVal);
+      acc.push(currVal);
+    }
+
+    return acc;
+  }, []);
+}
+
