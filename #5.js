@@ -46,7 +46,36 @@ function findMinMax(arr) {
 // IMPERATIVO [O(n) o complessità migliore]
 // ========================================
 
+function findMinMax(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) return null;
+
+  const result = {
+    max: arr[0],
+    min: arr[0]
+  };
+
+  for (const item of arr) {
+    if (item > result.max) result.max = item;
+    if (item < result.min) result.min = item;
+  }
+
+  return result;
+}
 
 // ========================================
 // DICHIARATIVO [O(n) o complessità migliore]
 // ========================================
+
+function findMinMax(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) return null;
+
+  return arr.reduce((acc, currVal) => {
+    if (currVal > acc.max) acc.max = currVal;
+    if (currVal < acc.min) acc.min = currVal;
+
+    return acc;
+  }, {
+    max: arr[0],
+    min: arr[0]
+  })
+}
