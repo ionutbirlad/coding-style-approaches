@@ -32,10 +32,15 @@ function removeDuplicates(arr) {
 
   const result = [];
 
-  for (const item of arr) {
-    if (!result.includes(item)) {
-      result.push(item);
+  for (let i = 0; i < arr.length; i++) {
+    let isDuplicate = false;
+    for (let j = 0; j < result.length; j++) {
+      if (arr[i] === result[j]) {
+        isDuplicate = true;
+        break;
+      }
     }
+    if (!isDuplicate) result.push(arr[i]);
   }
 
   return result;
@@ -44,6 +49,7 @@ function removeDuplicates(arr) {
 // ========================================
 // IMPERATIVO [O(n) o complessità migliore]
 // ========================================
+
 
 
 // ========================================
