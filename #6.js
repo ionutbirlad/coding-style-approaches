@@ -104,3 +104,17 @@ function mergeArrays(arr1, arr2) {
 }
 
 console.log(mergeArrays([1, 2], []));
+
+// ========================================
+// ONE-LINER [O(n)]
+// ========================================
+
+function mergeArrays(arr1, arr2) {
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) return null;
+  if (arr1.length === 0) return arr2;
+  if (arr2.length === 0) return arr1;
+
+  const result = [...new Set([...arr1, ...arr2])];
+
+  return result;
+}
