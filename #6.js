@@ -61,27 +61,46 @@
 // IMPERATIVO [O(n) o complessità migliore]
 // ========================================
 
+// function mergeArrays(arr1, arr2) {
+//   if (!Array.isArray(arr1) || !Array.isArray(arr2)) return null;
+//   if (arr1.length === 0) return arr2;
+//   if (arr2.length === 0) return arr1;
+
+//   const rawMergedArr = [...arr1, ...arr2];
+//   const result = [];
+//   const seen = new Map();
+
+//   for (const item of rawMergedArr) {
+//     if (!seen.has(item)) {
+//       seen.set(item, true);
+//       result.push(item);
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(mergeArrays([1, 2], []));
+
+// ========================================
+// DICHIARATIVO [O(n) o complessità migliore]
+// ========================================
+
 function mergeArrays(arr1, arr2) {
   if (!Array.isArray(arr1) || !Array.isArray(arr2)) return null;
   if (arr1.length === 0) return arr2;
   if (arr2.length === 0) return arr1;
 
-  const rawMergedArr = [...arr1, ...arr2];
-  const result = [];
   const seen = new Map();
 
-  for (const item of rawMergedArr) {
-    if (!seen.has(item)) {
-      seen.set(item, true);
-      result.push(item);
+  return [...arr1, ...arr2].reduce((acc, currVal) => {
+    if (!seen.has(currVal)) {
+      seen.set(currVal, true);
+      acc.push(currVal);
     }
-  }
 
-  return result;
+    return acc;
+  }, []);
 }
 
 console.log(mergeArrays([1, 2], []));
-
-// ========================================
-// DICHIARATIVO [O(n) o complessità migliore]
-// ========================================
