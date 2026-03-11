@@ -28,27 +28,47 @@
 // BASELINE: PROCEDURALE (da trasformare)
 // ========================================
 
-function groupBy(arr, prop) {
-  if (!Array.isArray(arr)) return null;
+// function groupBy(arr, prop) {
+//   if (!Array.isArray(arr)) return null;
 
-  const result = {};
+//   const result = {};
 
-  for (let i = 0; i < arr.length; i++) {
-    const key = arr[i][prop];
-    if (!result[key]) {
-      result[key] = [];
-    }
-    result[key].push(arr[i]);
-  }
+//   for (let i = 0; i < arr.length; i++) {
+//     const key = arr[i][prop];
+//     if (!result[key]) {
+//       result[key] = [];
+//     }
+//     result[key].push(arr[i]);
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
 // ========================================
 // IMPERATIVO [O(n) o complessità migliore]
 // ========================================
 
+function groupBy(arr, prop) {
+  if (!Array.isArray(arr)) return null;
+  if (arr.length === 0) return {};
+
+  const result = {};
+
+  for (const item of arr) {
+    if (Object.hasOwn(item, prop)) {
+      const key = item[prop];
+      if (!result[key]) result[key] = [];
+      result[key].push(item);
+    }
+  }
+
+  return result;
+}
+
+console.log(groupBy([{name: 'Alice', role: 'admin'}, {name: 'Bob', role: 'user'}, {name: 'Carol', role: 'admin'}], 'role'))
 
 // ========================================
 // DICHIARATIVO [O(n) o complessità migliore]
 // ========================================
+
+const result = Object.groupBy(arr.filter(item => prop in item), (item) => item[prop]);
