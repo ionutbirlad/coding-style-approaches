@@ -42,21 +42,34 @@
 // IMPERATIVO [O(n) o complessità migliore]
 // ========================================
 
-function invertObject(obj) {
-  if (obj === null || typeof obj !== 'object') return null;
-  if (Object.keys(obj).length === 0) return {};
+// function invertObject(obj) {
+//   if (obj === null || typeof obj !== 'object') return null;
+//   if (Object.keys(obj).length === 0) return {};
 
-  const result = {};
+//   const result = {};
 
-  for (const [key, value] of Object.entries(obj)) {
-    result[value] = key;
-  }
+//   for (const [key, value] of Object.entries(obj)) {
+//     result[value] = key;
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
-console.log(invertObject({ a: 1, b: 2, c: 3 }));
+// console.log(invertObject({ a: 1, b: 2, c: 3 }));
 
 // ========================================
 // DICHIARATIVO [O(n) o complessità migliore]
 // ========================================
+
+function invertObject(obj) {
+  if (obj === null || typeof obj !== 'object') return null;
+  if (Object.keys(obj).length === 0) return {};
+
+  return Object.entries(obj).reduce((acc, [currKey, currVal]) => {
+    acc[currVal] = currKey;
+
+    return acc;
+  }, {});
+}
+
+console.log(invertObject({ a: 1, b: 2, c: 3 }));
