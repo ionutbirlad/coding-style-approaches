@@ -25,23 +25,37 @@
 // BASELINE: PROCEDURALE (da trasformare)
 // ========================================
 
-function invertObject(obj) {
-  if (obj === null || typeof obj !== 'object') return null;
+// function invertObject(obj) {
+//   if (obj === null || typeof obj !== 'object') return null;
 
-  const result = {};
-  const keys = Object.keys(obj);
+//   const result = {};
+//   const keys = Object.keys(obj);
 
-  for (let i = 0; i < keys.length; i++) {
-    result[obj[keys[i]]] = keys[i];
-  }
+//   for (let i = 0; i < keys.length; i++) {
+//     result[obj[keys[i]]] = keys[i];
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
 // ========================================
 // IMPERATIVO [O(n) o complessità migliore]
 // ========================================
 
+function invertObject(obj) {
+  if (obj === null || typeof obj !== 'object') return null;
+  if (Object.keys(obj).length === 0) return {};
+
+  const result = {};
+
+  for (const [key, value] of Object.entries(obj)) {
+    result[value] = key;
+  }
+
+  return result;
+}
+
+console.log(invertObject({ a: 1, b: 2, c: 3 }));
 
 // ========================================
 // DICHIARATIVO [O(n) o complessità migliore]
