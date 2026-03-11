@@ -26,26 +26,39 @@
 // BASELINE: PROCEDURALE (da trasformare)
 // ========================================
 
-function countOccurrences(arr) {
-  if (!Array.isArray(arr)) return null;
+// function countOccurrences(arr) {
+//   if (!Array.isArray(arr)) return null;
 
-  const result = {};
+//   const result = {};
 
-  for (let i = 0; i < arr.length; i++) {
-    if (!result[arr[i]]) {
-      result[arr[i]] = 1;
-    } else {
-      result[arr[i]]++;
-    }
-  }
+//   for (let i = 0; i < arr.length; i++) {
+//     if (!result[arr[i]]) {
+//       result[arr[i]] = 1;
+//     } else {
+//       result[arr[i]]++;
+//     }
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
 // ========================================
 // IMPERATIVO [O(n) o complessità migliore]
 // ========================================
 
+function countOccurrences(arr) {
+  if (!Array.isArray(arr)) return null;
+  
+  const result = new Map();
+
+  for (const item of arr) {
+    result.set(item, (result.get(item) ?? 0) + 1);
+  }
+
+  return Object.fromEntries(result);
+}
+
+console.log(countOccurrences(['a', 'b', 'a', 'c', 'b', 'a']));
 
 // ========================================
 // DICHIARATIVO [O(n) o complessità migliore]
