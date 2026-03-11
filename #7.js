@@ -71,21 +71,34 @@
 // DICHIARATIVO [O(n) o complessità migliore]
 // ========================================
 
+// function groupBy(arr, prop) {
+//   if (!Array.isArray(arr)) return null;
+//   if (arr.length === 0) return {};
+
+//   return arr.reduce((acc, currVal) => {
+//     if (Object.hasOwn(currVal, prop)) {
+//       const key = currVal[prop];
+//       if (!acc[key]) acc[key] = [];
+//       acc[key].push(currVal);
+//     }
+
+//     return acc;
+//   }, {});
+// }
+
+// console.log(groupBy([{name: 'Alice', role: 'admin'}, {name: 'Bob', role: 'user'}, {name: 'Carol', role: 'admin'}], 'role'));
+
+// ========================================
+// ONE-LINER [O(n)]
+// ========================================
+
 function groupBy(arr, prop) {
   if (!Array.isArray(arr)) return null;
   if (arr.length === 0) return {};
 
-  return arr.reduce((acc, currVal) => {
-    if (Object.hasOwn(currVal, prop)) {
-      const key = currVal[prop];
-      if (!acc[key]) acc[key] = [];
-      acc[key].push(currVal);
-    }
+  const result = Object.groupBy(arr.filter(item => prop in item), (item) => item[prop]);
 
-    return acc;
-  }, {});
+  return result;
 }
 
 console.log(groupBy([{name: 'Alice', role: 'admin'}, {name: 'Bob', role: 'user'}, {name: 'Carol', role: 'admin'}], 'role'));
-
-// const result = Object.groupBy(arr.filter(item => prop in item), (item) => item[prop]);
