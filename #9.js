@@ -46,20 +46,32 @@
 // IMPERATIVO [O(n) o complessità migliore]
 // ========================================
 
-function countOccurrences(arr) {
-  if (!Array.isArray(arr)) return null;
+// function countOccurrences(arr) {
+//   if (!Array.isArray(arr)) return null;
   
-  const result = new Map();
+//   const result = new Map();
 
-  for (const item of arr) {
-    result.set(item, (result.get(item) ?? 0) + 1);
-  }
+//   for (const item of arr) {
+//     result.set(item, (result.get(item) ?? 0) + 1);
+//   }
 
-  return Object.fromEntries(result);
-}
+//   return Object.fromEntries(result);
+// }
 
-console.log(countOccurrences(['a', 'b', 'a', 'c', 'b', 'a']));
+// console.log(countOccurrences(['a', 'b', 'a', 'c', 'b', 'a']));
 
 // ========================================
 // DICHIARATIVO [O(n) o complessità migliore]
 // ========================================
+
+function countOccurrences(arr) {
+  if (!Array.isArray(arr)) return null;
+
+  return Object.fromEntries(arr.reduce((acc, currVal) => {
+    acc.set(currVal, (acc.get(currVal) ?? 0) + 1);
+
+    return acc;
+  }, new Map()));
+}
+
+console.log(countOccurrences(['a', 'b', 'a', 'c', 'b', 'a']));
