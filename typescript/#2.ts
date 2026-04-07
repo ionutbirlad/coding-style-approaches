@@ -35,3 +35,5 @@ transform(num);
 // quale tipo specifico ha la variabile — in questo caso tramite typeof.
 // Dopo il check typeof === 'string', TS sa che in quel ramo par è una stringa,
 // e nel ramo else sa che può essere solo number (l'unico tipo rimanente).
+
+// E un modo per estendere i check a runtime, dove TS non puo arrivare
