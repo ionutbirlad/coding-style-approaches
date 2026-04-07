@@ -15,3 +15,36 @@
 // Output atteso
 // applyTheme(theme)
 // → "color: primary, size: md, animated: true"
+
+type Theme = {
+  color: 'primary' | 'secondary' | 'danger';
+  size: 'sm' | 'md' | 'lg';
+  animated: boolean;
+}
+
+function applyTheme(theme: Theme) {
+  console.log(`
+    color: ${theme.color},
+    size: ${theme.size},
+    animated: ${theme.animated}
+  `);
+}
+
+const theme = {
+  color: 'primary',
+  size: 'md',
+  animated: true
+} as const;
+
+applyTheme(theme);
+
+// Note — Literal Types e as const
+
+// I literal types restringono il tipo di un campo a valori specifici e predefiniti
+// invece che al tipo generico (es. 'primary' | 'secondary' | 'danger' invece di string).
+// Senza as const, TS inferisce i valori di un object literal come tipi generici
+// (string, number, boolean) — incompatibili con un tipo che si aspetta literal types.
+// Con as const, TS inferisce i valori esatti come literal types, rendendoli
+// compatibili con il tipo atteso.
+// Effetto collaterale: as const rende tutte le proprietà readonly a livello di tipo,
+// quindi TS non permette riassegnazioni dopo la dichiarazione.
