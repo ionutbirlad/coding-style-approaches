@@ -37,10 +37,10 @@ function printUser(user: User) {
   `);
 }
 
-const user: User = { id: 1, name: 'Ionut', email: 'ionut@test.com' };
+const user = { id: 1, name: 'Ionut', email: 'ionut@test.com' };
 printUser(user);
 
-const adminUser: AdminUser = { id: 2, name: 'Admin', email: 'admin@test.com', role: 'superadmin', permissions: ['read', 'write'] };
+const adminUser = { id: 2, name: 'Admin', email: 'admin@test.com', role: 'superadmin', permissions: ['read', 'write'] };
 printUser(adminUser);
 
 // Note — Structural typing e extends
