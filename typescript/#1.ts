@@ -1,4 +1,4 @@
-// Esercizio #1 — "Modellare un utente con interface ed estenderla"
+// Esercizio #1 — "Structural Typing"
 
 // Descrizione del problema
 // Devi modellare un sistema con utenti base e utenti admin.
