@@ -19,3 +19,39 @@
 
 // printUser({ id: 2, name: 'Admin', email: 'admin@test.com', role: 'superadmin', permissions: ['read', 'write'] })
 // → "Admin — admin@test.com"
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+interface AdminUser extends User {
+  role: string;
+  permissions: string[];
+}
+
+function printUser(user: User) {
+  console.log(`
+    ${user.name} - ${user.email}
+  `);
+}
+
+const user: User = { id: 1, name: 'Ionut', email: 'ionut@test.com' };
+printUser(user);
+
+const adminUser: AdminUser = { id: 2, name: 'Admin', email: 'admin@test.com', role: 'superadmin', permissions: ['read', 'write'] };
+printUser(adminUser);
+
+// Note — Structural typing e extends
+
+// Quando una interface estende un'altra, è un suo sottotipo.
+// TS non guarda il nome del tipo ma la sua "forma" (structural typing):
+// se AdminUser ha tutte le proprietà che User richiede, è compatibile con User.
+// Quindi printUser(user: User) accetta anche AdminUser senza bisogno di User | AdminUser.
+//
+// Eccezione: l'excess property checking.
+// Se passi un object literal direttamente, TS controlla che non ci siano
+// proprietà extra rispetto al tipo atteso — e lancia errore.
+// Se invece assegni prima a una variabile tipata (const admin: AdminUser = ...)
+// e poi la passi, l'errore sparisce — torna a valere solo lo structural typing.
