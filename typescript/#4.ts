@@ -27,3 +27,12 @@ const res3 = wrap({ id: 1});
 console.log(res1);
 console.log(res2);
 console.log(res3);
+
+// Note — Generics
+
+// I generics permettono di scrivere funzioni (o tipi) che funzionano
+// con qualsiasi tipo, mantenendo però la precisione del tipo originale.
+// T è un placeholder che TS sostituisce con il tipo reale al momento della chiamata,
+// inferendolo automaticamente dal valore passato — senza bisogno di specificarlo esplicitamente.
+// Il vantaggio rispetto a `any` è che il tipo di ritorno rimane collegato al tipo di input:
+// wrap('hello') restituisce { data: string }, non { data: any }.
