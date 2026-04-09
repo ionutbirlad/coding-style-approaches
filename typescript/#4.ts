@@ -1,0 +1,17 @@
+// Esercizio #4 — "Generics"
+
+// Descrizione del problema
+// Hai bisogno di una funzione che wrappa un valore qualsiasi
+// in un oggetto con una proprietà `data`, mantenendo il tipo originale.
+
+// Cosa devi fare
+// 1. Scrivere una funzione generica `wrap` che accetta un valore di tipo T
+//    e restituisce un oggetto { data: T }
+// 2. TS deve inferire automaticamente T dal valore passato
+//    senza bisogno di specificarlo esplicitamente
+// 3. Verificare che il tipo di ritorno sia corretto nei seguenti casi
+
+// Output atteso
+// wrap('hello')  // { data: 'hello' } — tipo: { data: string }
+// wrap(42)       // { data: 42 }      — tipo: { data: number }
+// wrap({ id: 1}) // { data: { id: 1 }} — tipo: { data: { id: number } }
