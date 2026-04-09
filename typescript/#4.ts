@@ -15,3 +15,15 @@
 // wrap('hello')  // { data: 'hello' } — tipo: { data: string }
 // wrap(42)       // { data: 42 }      — tipo: { data: number }
 // wrap({ id: 1}) // { data: { id: 1 }} — tipo: { data: { id: number } }
+
+function wrap<T>(arg: T): { data: T } {
+  return { data: arg }
+}
+
+const res1 = wrap('hello');
+const res2 = wrap(42);
+const res3 = wrap({ id: 1});
+
+console.log(res1);
+console.log(res2);
+console.log(res3);
